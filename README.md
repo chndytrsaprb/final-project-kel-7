@@ -1,3 +1,4 @@
 # final-project-kel-7
 
-![ERD](ERD/ERD KEL 7.png)
+#Tampil ERD
+![ERD](ERD/ERD_KEL_7.png)

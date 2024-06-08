@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('/master', function () {
     return view('layouts.master');
 });
+Route::resource('profile', ProfileController::class);
+Route::resource('product', ProductController::class);
+Route::resource('category', CategoryController::class);
+Route::resource('caritem', CaritemController::class);
+Route::resource('cart', CartController::class);

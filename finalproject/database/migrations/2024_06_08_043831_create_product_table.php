@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('product', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('category_id');
- 
             $table->foreign('category_id')->references('id')->on('category');
             $table->string('name');
             $table->text('description');

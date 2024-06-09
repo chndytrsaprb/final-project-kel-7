@@ -1,13 +1,21 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title')
-    Detail Profiles
-@endsection
+@section('title', 'Show Category')
 
 @section('content')
-    <p>{{$casts->nama}}</p>
-    <p>{{$casts->umur}}</p>
-    <p>{{$casts->bio}}</p>
-
-    <a href="/profiles" class="btn btn-sm btn-secondary">Kembali</a>
-@endsection
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Show Category</h3>
+    </div>
+    <div class="card-body">
+        <table class="table table-bordered">
+            <tr>
+                <th>ID</th>
+                <td>{{ $category->id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ $category->name }}</td>
+            </tr>
+            <tr>
+                <th>Description</

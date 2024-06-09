@@ -1,37 +1,26 @@
-@extends('layouts.master')
+@extends('layouts.app')
 
-@section('title')
-
-@endsection
+@section('title', 'Edit Category')
 
 @section('content')
-<form action="/profies/{{ $profiles->id }}" method="post">
-    {{-- validation --}}
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
-
-    {{-- form input --}}
-    @csrf
-    @method('PUT')
-    <div class="form-group">
-        <label>Nama</label>
-        <input type="text" class="form-control" name="nama" value="{{ $casts->nama }}">
+<div class="card">
+    <div class="card-header">
+        <h3 class="card-title">Edit Category</h3>
     </div>
-    <div class="form-group">
-        <label>Umur</label>
-        <input type="text" class="form-control" name="umur" value="{{ $casts->umur }}">
+    <div class="card-body">
+        <form action="{{ route('categories.update', $category->id) }}" method="POST">
+            @csrf
+            @method('PUT')
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" name="name" value="{{ $category->name }}" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description">{{ $category->description }}</textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
     </div>
-    <div class="form-group">
-        <label>Bio</label>
-        <textarea name="bio" id="" cols="30" rows="10" class="form-control">{{ $casts->bio }}</textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</div>
 @endsection

@@ -1,5 +1,6 @@
 @extends('layouts.app')
 
+<<<<<<< HEAD
 @section('title', 'Show Category')
 
 @section('content')
@@ -19,3 +20,14 @@
             </tr>
             <tr>
                 <th>Description</
+=======
+@section('title')
+    Detail Category
+@endsection
+
+@section('content')
+    <p>{{$casts->name}}</p>
+
+    <a href="/category" class="btn btn-sm btn-secondary">Kembali</a>
+@endsection
+>>>>>>> 71daa77cbf1ba9fe70c9c2f8038ab9b020604754

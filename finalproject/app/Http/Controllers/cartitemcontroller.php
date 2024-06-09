@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Caritem;
 
-class profileController extends Controller
+class CartItemController extends Controller
 {
     /**
      * Display a listing of the resource.

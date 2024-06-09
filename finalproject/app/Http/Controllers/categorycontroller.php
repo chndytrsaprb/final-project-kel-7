@@ -2,91 +2,76 @@
 
 namespace App\Http\Controllers;
 
+<<<<<<< HEAD
+=======
 use App\Models\Profile;
 use Illuminate\Http\Request;
+>>>>>>> 71daa77cbf1ba9fe70c9c2f8038ab9b020604754
 use App\Models\Category;
+use Illuminate\Http\Request;
 
-class categoryController extends Controller
+class CategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
+<<<<<<< HEAD
+        $categories = Category::all();
+        return view('categories.index', compact('categories'));
+=======
         $category = Category::all();
 
         return view('category.index', ["category" => $category]);
+>>>>>>> 71daa77cbf1ba9fe70c9c2f8038ab9b020604754
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
+<<<<<<< HEAD
+        return view('categories.create');
+=======
         return view('category.create');
+>>>>>>> 71daa77cbf1ba9fe70c9c2f8038ab9b020604754
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(Request $request)
     {
         $request->validate([
+<<<<<<< HEAD
+            'name' => 'required',
+            'description' => 'nullable|string',
+=======
             'name' => 'required|min:4',
+>>>>>>> 71daa77cbf1ba9fe70c9c2f8038ab9b020604754
         ]);
 
-        $category = new Category;
-
-        $category->name = $request->name;
-
-        $category->save();
-
-        return redirect('/category');
+        Category::create($request->all());
+        return redirect()->route('categories.index')->with('success', 'Category created successfully.');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function show(Category $category)
     {
-        $category = Category::find($id);
-        return view('category.show', ['category' => $category]);
+        return view('categories.show', compact('category'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        $category = Category::find($id);
-        return view('category.edit', ['category' => $category]);
+        return view('categories.edit', compact('category'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
         $request->validate([
             'name' => 'required',
+            'description' => 'nullable|string',
         ]);
 
-        $category = Category::find($id);
-
-        $category->name = $request->name;
-
-        $category->save();
-
-        return redirect('/category');
+        $category->update($request->all());
+        return redirect()->route('categories.index')->with('success', 'Category updated successfully.');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        $category = Category::find($id);
         $category->delete();
-        return redirect('/category');
+        return redirect()->route('categories.index')->with('success', 'Category deleted successfully.');
     }
 }

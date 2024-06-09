@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Profile;
 use Illuminate\Http\Request;
 use App\Models\Category;
 
@@ -13,6 +14,7 @@ class categoryController extends Controller
     public function index()
     {
         $category = Category::all();
+
         return view('category.index', ["category" => $category]);
     }
 
@@ -21,7 +23,7 @@ class categoryController extends Controller
      */
     public function create()
     {
-        return view('category.add');
+        return view('category.create');
     }
 
     /**
@@ -30,7 +32,7 @@ class categoryController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required',
+            'name' => 'required|min:4',
         ]);
 
         $category = new Category;

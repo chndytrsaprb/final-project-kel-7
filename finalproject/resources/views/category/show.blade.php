@@ -1,13 +1,11 @@
 @extends('layouts.master')
 
 @section('title')
-    Detail Profiles
+    Detail Category
 @endsection
 
 @section('content')
-    <p>{{$casts->nama}}</p>
-    <p>{{$casts->umur}}</p>
-    <p>{{$casts->bio}}</p>
+    <p>{{$casts->name}}</p>
 
-    <a href="/profiles" class="btn btn-sm btn-secondary">Kembali</a>
+    <a href="/category" class="btn btn-sm btn-secondary">Kembali</a>
 @endsection

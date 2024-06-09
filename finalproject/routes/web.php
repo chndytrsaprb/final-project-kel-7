@@ -1,6 +1,11 @@
 <?php
 
+use App\Http\Controllers\cartController;
+use App\Http\Controllers\CartItemController;
+use App\Http\Controllers\productController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\categoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,21 +18,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
-Route::get('/master', function () {
+Route::get('/', function () {
     return view('layouts.master');
 });
-<<<<<<< HEAD
 
 Auth::routes();
 
-=======
 Route::resource('profile', ProfileController::class);
-Route::resource('product', ProductController::class);
+Route::resource('product', productController::class);
 Route::resource('category', CategoryController::class);
-Route::resource('caritem', CaritemController::class);
-Route::resource('cart', CartController::class);
->>>>>>> 67a187406121fb2f1b0d5adf3b3f9c2099ed136e
+Route::resource('caritem', CartItemController::class);
+Route::resource('cart', cartController::class);
